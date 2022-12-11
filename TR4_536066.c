@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "ordvetor.h"
 
-VETORORD* VETORD_create(int n, COMP* compara){
+VETORORD* VETORD_create(int n, COMP* compara){//função para criar um vetor
     VETORORD* vetorord = malloc(sizeof(VETORORD));
     vetorord->comparador = compara;
     vetorord->N = n;
@@ -14,8 +14,7 @@ VETORORD* VETORD_create(int n, COMP* compara){
     return vetorord;
 }
 
-//Lógica do adicionar feat by Sofia Desidério
-void VETORD_add(VETORORD* vetor, void* newelem){
+void VETORD_add(VETORORD* vetor, void* newelem){//função de adicionar um novo elemento ao vetor
     if (vetor->P < vetor->N) {
         if (vetor->P == 0) {
             vetor->elems[0] = newelem;
@@ -38,7 +37,7 @@ void VETORD_add(VETORORD* vetor, void* newelem){
     }
 }
 
-void* VETORD_remove(VETORORD* vetor){
+void* VETORD_remove(VETORORD* vetor){ //função de remover um elemento do vetor
     void* aux = vetor->elems[0];
     for(int i = 0;i<vetor->P;i++){
         vetor->elems[i] = vetor->elems[i+1]; 
